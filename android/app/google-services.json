@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "471302681065",
+    "project_id": "uimenu-7f59d",
+    "storage_bucket": "uimenu-7f59d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471302681065:android:f0696ec960c58e9ecf9b78",
+        "android_client_info": {
+          "package_name": "com.yarmcfly.uimenu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdJ2mdpOGf-ZGjarKkQE82YUJnRPUxqmc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
