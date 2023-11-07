@@ -1,8 +1,8 @@
-//web_menu.dart
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_appauth/flutter_appauth.dart';
 
-class WebMenu extends StatelessWidget {
+class MenuScreen extends StatelessWidget {
   final FlutterAppAuth appAuth = FlutterAppAuth();
 
   Future<void> authenticateWithOAuth(BuildContext context) async {
@@ -33,6 +33,7 @@ class WebMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: kIsWeb ? Text('Веб-меню') : Text('Мобільне меню'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -41,7 +42,9 @@ class WebMenu extends StatelessWidget {
           Expanded(
             child: Container(),
           ),
-          Text('Веб-меню', style: TextStyle(fontSize: 24)),
+          kIsWeb
+              ? Text('Ласкаво просимо!', style: TextStyle(fontSize: 24))
+              : Text('З поверненням @test_user!', style: TextStyle(fontSize: 24)),
           ListTile(
             title: Text('Вхід через OAuth0'),
             onTap: () {
@@ -50,6 +53,26 @@ class WebMenu extends StatelessWidget {
           ),
         ],
       ),
+      drawer: !kIsWeb
+          ? Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text('@test_nickname'),
+              accountEmail: Text('yarmcfly@gmail.com'),
+              currentAccountPicture: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Icon(Icons.person),
+              ),
+            ),
+            ListTile(
+              title: Text('Про нас')
+            ),
+          ],
+        ),
+      )
+          : null,
     );
   }
 }
